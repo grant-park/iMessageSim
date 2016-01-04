@@ -8,9 +8,9 @@
 		<script src="app.js"></script>
 	</head>
 	<body>
-		<div class="iphone6-plus">
-			<div class="casing" ng-controller="Messaging">
-				<div ng-show="!showApps" class="screen">
+		<div class="iphone6-plus" ng-controller="Messaging">
+			<div class="casing">
+				<div ng-show="!showApps" class="screen animates">
 					<div class="messenger" id="messenger" scroll-glue>
 						<div class="animate" ng-repeat="bubble in bubbles track by $index" ng-class="check(bubble.isMe)">
 							<div class="text">
@@ -20,15 +20,31 @@
 					</div>
 					<div class="textfield">
 						<form id="form" ng-submit="send()">
-							<input type="text" name="texting" placeholder="Write here...."  class="field" ng-model="bubbleText"></input>
+							<input type="text" name="texting" placeholder="Write here...."  class="field" ng-model="bubbleText" autocomplete="off"></input>
 							<button type="submit" class="send">Send</button>
 						</form>
 					</div>
 				</div>
-				<div ng-show="showApps" class="screen">
+				<div ng-show="showApps" class="screen animates">
+					<div class="appsView">
+						<div class="anApp" ng-repeat="project in projects">
+							<a href={{project.link}} target="_blank">
+								<div class="anImage"><img src={{project.image}}></div>
+							</a>
+							<div class="aDescription"><p>{{project.description}}</p></div>
+						</div>
+					</div>
+					<div class="tabView">
+						<div class="tabApp" ng-repeat="tab in tabs">
+							<a href={{tab.link}} target="_blank">
+								<div class="tabImage"><img src={{tab.image}}></div>
+							</a>
+							<div class="tabDescription"><p>{{tab.description}}</p></div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="button">
+			<div class="button" ng-click="switch()">
 			</div>
 		</div>
 	</div>		
