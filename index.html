@@ -1,38 +1,36 @@
-<html>
+<html ng-app="App">
 	<head>
 		<link rel="stylesheet" href="main.css">
-		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<!-- 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+		<script src="jquery-1.11.3.min.js"></script>
+		<script src-"angular-route.min.js"></script>
+		<script src="angular.min.js"></script>
+		<script src="angular-animate.min.js"></script>
+		<script src="angular-sanitize.min.js"></script>
+		<script src="app.js"></script>
+
 	</head>
 	<body>
 		<div class="iphone6-plus">
 			<div class="casing">
-				<div class="screen">
-					<div class="messenger">
-						<div class="bubble">
-							<div class="text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex...
-								</p>
+				<div class="screen" ng-controller="Messaging">
+					<div class="messagingScreen">
+						<div class="messenger" id="messenger" scroll-glue>
+							<div class="bubble animate" ng-repeat="bubble in bubbles track by $index">
+								<div class="text">
+									<p ng-bind-html="bubble | unsafe">
+									</p>
+								</div>
 							</div>
 						</div>
-						<div class="bubble">
-							<div class="text">
-								<p>Lorem ips    um dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi    dunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud     exercitation ullamco laboris nisi ut aliquip ex...
-								</p>
-							</div>
+						<div class="textfield">
+								<form id="form" ng-submit="send()">
+									<input type="text" name="texting" placeholder="Write here...."  class="field" ng-model="bubbleText"></input>
+									<button type="submit" class="send">Send</button>
+								</form>
 						</div>
-						<div class="bubble">
-							<div class="text">
-								<p>...
-								</p>
-							</div>
+						<div class="line">
 						</div>
-					</div>
-					<div class="textfield">
-							<form id="form">
-								<input type="text" name="texting" placeholder="Write here...."  class="field"></input>
-								<button class="send">Send</button>
-							</form>
-
 					</div>
 				</div>
 			</div>
@@ -41,5 +39,6 @@
 		</div>
 	</div>		
 
-</body>
+	</body>
+	<script src="bower_components/angular-scroll-glue/src/scrollglue.js"></script>
 </html>
