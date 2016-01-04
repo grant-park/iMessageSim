@@ -1,37 +1,31 @@
 <html ng-app="App">
 	<head>
 		<link rel="stylesheet" href="main.css">
-<!-- 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
-		<script src="jquery-1.11.3.min.js"></script>
-		<script src-"angular-route.min.js"></script>
-		<script src="angular.min.js"></script>
-		<script src="angular-animate.min.js"></script>
-		<script src="angular-sanitize.min.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
 		<script src="app.js"></script>
-
 	</head>
 	<body>
 		<div class="iphone6-plus">
-			<div class="casing">
-				<div class="screen" ng-controller="Messaging">
-					<div class="messagingScreen">
-						<div class="messenger" id="messenger" scroll-glue>
-							<div class="bubble animate" ng-repeat="bubble in bubbles track by $index">
-								<div class="text">
-									<p ng-bind-html="bubble | unsafe">
-									</p>
-								</div>
+			<div class="casing" ng-controller="Messaging">
+				<div ng-show="!showApps" class="screen">
+					<div class="messenger" id="messenger" scroll-glue>
+						<div class="animate" ng-repeat="bubble in bubbles track by $index" ng-class="check(bubble.isMe)">
+							<div class="text">
+								<p ng-bind-html="bubble.mes | unsafe"></p>
 							</div>
 						</div>
-						<div class="textfield">
-								<form id="form" ng-submit="send()">
-									<input type="text" name="texting" placeholder="Write here...."  class="field" ng-model="bubbleText"></input>
-									<button type="submit" class="send">Send</button>
-								</form>
-						</div>
-						<div class="line">
-						</div>
 					</div>
+					<div class="textfield">
+						<form id="form" ng-submit="send()">
+							<input type="text" name="texting" placeholder="Write here...."  class="field" ng-model="bubbleText"></input>
+							<button type="submit" class="send">Send</button>
+						</form>
+					</div>
+				</div>
+				<div ng-show="showApps" class="screen">
 				</div>
 			</div>
 			<div class="button">

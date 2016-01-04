@@ -82,7 +82,7 @@ body {
 	padding-bottom: 15px;
 }
 
-.bubble:nth-child(even) {
+.evenBubble {
 	width: 200px;
 	height: auto;
 	background-color: skyblue;
@@ -94,7 +94,7 @@ body {
 	transition: 0.2s linear all;
 }
 
-.bubble:nth-child(odd)::after {
+.oddBubble::after {
 	content: ' ';
 	position: absolute;
 	width: 0;
@@ -109,7 +109,7 @@ body {
 	transition: 0.2s linear all;
 }
 
-.bubble:nth-child(odd) {
+.oddBubble {
 	width: 200px;
 	height: auto;
 	background-color: cornflowerblue;
@@ -123,7 +123,7 @@ body {
 	transition: 0.2s linear all;
 }
 
-.bubble:nth-child(even)::after {
+.evenBubble::after {
 	content: ' ';
 	position: absolute;
 	width: 0;
